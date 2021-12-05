@@ -1,0 +1,50 @@
+<?php $this->extend('block_searchable'); ?>
+<?php $this->block('content'); ?>
+
+    <label for="searchbox" class="searchbox">Suche</label>
+    <input class='input' type="search" id="searchbox" placeholder="Suchwort eingeben ...">
+
+    
+
+<script>
+
+    // https://codepen.io/hilmanski/pen/XWgZYYp
+
+    document.addEventListener("DOMContentLoaded", function(event) {
+
+        let cards = document.querySelectorAll('<?= "." . $this->searchclass ?>');
+            
+        function liveSearch() {
+            let search_query = document.getElementById("searchbox").value;
+            
+            //Use innerText if all contents are visible
+            //Use textContent for including hidden elements
+            for (var i = 0; i < cards.length; i++) {
+
+                //console.log(cards[i]);
+
+                if(cards[i].textContent.toLowerCase()
+                        .includes(search_query.toLowerCase())) {
+                    cards[i].classList.remove("is-hidden");
+                } else {
+                    cards[i].classList.add("is-hidden");
+                }
+            }
+        };
+
+        //A little delay
+        let typingTimer;               
+        let typeInterval = 500;  
+        let searchInput = document.getElementById('searchbox');
+
+        searchInput.addEventListener('keyup', () => {
+            clearTimeout(typingTimer);
+            typingTimer = setTimeout(liveSearch, typeInterval);
+        });
+
+    });
+    
+</script>
+
+<?php $this->endblock(); ?>
+

@@ -1,0 +1,52 @@
+{
+    "name": "berecont/contao-inpagesearch-bundle",
+    "description": "content element for searchable content in the dom on that page, that already rendered",
+    "keywords": [
+        "contao",
+        "bundle",
+        "tag 3",
+        "tag 4"
+    ],
+    "type": "contao-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bernhard Renner",
+            "email": "bernhard@werbepanorama.at",
+            "homepage": "https://werbepanorama.at",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/berecont/contao-inpagesearch-bundle/issues",
+        "source": "https://github.com/berecont/contao-inpagesearch-bundle"
+    },
+    "require": {
+        "contao/core-bundle": "^4.9"
+    },
+    "require-dev": {
+        "contao/manager-plugin": "^2.3",
+        "contao/test-case": "^4.0",
+        "phpunit/phpunit": "^8.4",
+        "symfony/http-client": "4.4.*",
+        "symfony/phpunit-bridge": "4.4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Berecont\\ContaoInpagesearchBundle\\": "src/"
+        },
+        "classmap": [
+            "src/Resources/contao"
+        ],
+        "exclude-from-classmap": [
+            "src/Resources/contao/config",
+            "src/Resources/contao/dca",
+            "src/Resources/contao/languages",
+            "src/Resources/contao/templates"
+        ]
+    },
+    "extra": {
+        "contao-manager-plugin": "Berecont\\ContaoInpagesearchBundle\\ContaoManager\\Plugin"
+    },
+    "version": "1.0-dev"
+}

@@ -1,0 +1,12 @@
+services:
+
+    # Contao content element Berecont\ContaoInpagesearchBundle\Controller\ContentElement\InpagesearchController
+    # We used annotations for tagging the frontend element category, the frontend element type and the frontend element template
+    Berecont\ContaoInpagesearchBundle\Controller\ContentElement\InpagesearchController:
+        tags:
+            - { name: container.service_subscriber }
+        public: true
+        # Since Symfony 5 the container has to be set manually
+        calls:
+            - [ setContainer, [ '@Psr\Container\ContainerInterface' ] ]
+
